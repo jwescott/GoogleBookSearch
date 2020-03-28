@@ -1,0 +1,37 @@
+{
+  "name": "GoogleBookSearch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'googlebooksearch/*'\" \"npm run googlebooksearch\"",
+    "googlebooksearch": "cd googlebooksearch && npm run start",
+    "seed": "node scripts/seeds.js",
+    "install": "cd googlebooksearch && npm install",
+    "build": "cd googlebooksearch && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwescott/GoogleBookSearch.git"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.3.16",
+    "if-env": "^1.0.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwescott/GoogleBookSearch/issues"
+  },
+  "homepage": "https://github.com/jwescott/GoogleBookSearch#readme"
+}
